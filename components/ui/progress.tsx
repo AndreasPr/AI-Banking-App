@@ -5,12 +5,19 @@ import * as ProgressPrimitive from "@radix-ui/react-progress"
 
 import { cn } from "@/lib/utils"
 
+// Extend the default props to include indicatorClassName
+export interface ProgressProps extends React.ComponentProps<typeof ProgressPrimitive.Root> {
+  indicatorClassName?: string;
+  value: number;
+}
+
+
 function Progress({
   indicatorClassName,
   className,
   value,
   ...props
-}: React.ComponentProps<typeof ProgressPrimitive.Root>) {
+}: ProgressProps) {
   return (
     <ProgressPrimitive.Root
       data-slot="progress"
@@ -30,3 +37,4 @@ function Progress({
 }
 
 export { Progress }
+
