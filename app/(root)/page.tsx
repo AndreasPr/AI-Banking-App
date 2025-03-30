@@ -7,8 +7,8 @@ import { getAccount, getAccounts } from "@/lib/actions/bank.actions";
 import RecentTransactions from "@/components/RecentTransactions";
 
 const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
-  const currentPage = Number(page as string) || 1; // pagination
-  const loggedIn = await getLoggedInUser(); // this is working fine
+  const currentPage = Number(page as string) || 1;
+  const loggedIn = await getLoggedInUser(); 
   const accounts = await getAccounts({ userId: loggedIn?.$id });
 
   if (!accounts) return;
