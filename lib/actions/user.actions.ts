@@ -108,6 +108,7 @@ export const signUp = async ({ password, ...userData }: SignUpParams) => {
 export async function getLoggedInUser() {
   try {
     const { account } = await createSessionClient();
+
     const result = await account.get();
 
     const user = await getUserInfo({ userId: result.$id})
@@ -125,7 +126,7 @@ export const logoutAccount = async () => {
 
     cookies().delete('appwrite-session');
 
-    await account.deleteSession('current');
+    const lala = await account.deleteSession('current');
   } catch (error) {
     return null;
   }
